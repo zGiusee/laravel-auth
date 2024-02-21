@@ -2,6 +2,6 @@
 
 @section('content')
     <div>
-        <a href="{{ route('admin.projects.index') }}">projects</a>
+        <a class="m-4" href="{{ route('admin.projects.index') }}">PROJECTS</a>
     </div>
 @endsection

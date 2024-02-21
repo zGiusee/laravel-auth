@@ -19,22 +19,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($projects as $project)
-                                <tr>
-                                    <th scope="row">{{ $project->id }}</th>
-                                    <td>
-                                        <a href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">
-                                            {{ $project->name }}
-                                        </a>
-                                    </td>
-                                    <td>{{ $project->description }}</td>
-                                    <td>{{ $project->repository_link }}</td>
-                                    <td>{{ $project->date_start }}</td>
-                                    <td>{{ $project->date_end }}</td>
-                                    <td>{{ $project->img }}</td>
-                                    <td>{{ $project->slug }}</td>
-                                </tr>
-                            @endforeach
+
+                            <tr>
+                                <th scope="row">{{ $project->id }}</th>
+                                <td>
+                                    <a>
+                                        {{ $project->name }}
+                                    </a>
+                                </td>
+                                <td>{{ $project->description }}</td>
+                                <td>{{ $project->repository_link }}</td>
+                                <td>{{ $project->date_start }}</td>
+                                <td>{{ $project->date_end }}</td>
+                                <td>{{ $project->img }}</td>
+                                <td>{{ $project->slug }}</td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
