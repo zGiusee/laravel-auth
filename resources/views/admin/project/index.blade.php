@@ -33,7 +33,6 @@
                                     <td>{{ $project->date_start }}</td>
                                     <td>{{ $project->date_end }}</td>
                                     <td>{{ Str::limit($project->img, 20, '...') }}</td>
-                                    {{-- <td>{{ $project->slug }}</td> --}}
 
                                     {{-- TOOLS --}}
                                     <td>
@@ -57,7 +56,6 @@
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
                                         </form> --}}
-
                                         <button class="my_delete_button" data-bs-toggle="modal"
                                             data-bs-target="#delete_modal" type="button"
                                             data-project-slug="{{ $project->slug }}"
