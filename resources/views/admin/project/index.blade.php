@@ -43,9 +43,9 @@
                                         </a>
 
                                         {{-- REDIRECT TO MODIFY PAGE --}}
-                                        <button href="">
+                                        <a href="{{ route('admin.projects.edit', ['project' => $project->slug]) }}">
                                             <i class="fa-solid fa-pencil"></i>
-                                        </button>
+                                        </a>
 
                                         {{-- DELETE BUTTON --}}
                                         <button href="">
