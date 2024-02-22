@@ -3,6 +3,18 @@
 @section('content')
     <div>
         <div class="row">
+            {{-- BUTTONS --}}
+            <div class="col-12">
+                <div class="text-center">
+                    <div>
+                        <a href="{{ route('admin.projects.create') }}">
+                            Add project
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {{-- PROJECTS TABLE --}}
             <div class="col-12">
                 <div class="py-3">
                     <table class="table">
@@ -27,11 +39,11 @@
                                             {{ $project->name }}
                                         </a>
                                     </td>
-                                    <td>{{ $project->description }}</td>
-                                    <td>{{ $project->repository_link }}</td>
+                                    <td>{{ Str::limit($project->description, 50, '...') }}</td>
+                                    <td>{{ Str::limit($project->repository_link, 30, '...') }}</td>
                                     <td>{{ $project->date_start }}</td>
                                     <td>{{ $project->date_end }}</td>
-                                    <td>{{ $project->img }}</td>
+                                    <td>{{ Str::limit($project->img, 20, '...') }}</td>
                                     <td>{{ $project->slug }}</td>
                                 </tr>
                             @endforeach

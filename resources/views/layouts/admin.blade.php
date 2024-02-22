@@ -99,11 +99,17 @@
                     {{-- Sidebar --}}
                     <div class="col-2">
                         <div class="sidebar">
-                            <ul>
-                                <li><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                                <li><a href="{{ route('admin.projects.index') }}">Pojects</a></li>
-                                <li><a href="{{ route('admin.projects.index') }}">Pojects</a></li>
-                            </ul>
+                            <div class="sidebar_list">
+                                <div
+                                    class="{{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }} p-4">
+                                    <a href="{{ route('admin.dashboard') }}">Home</a>
+                                </div>
+                                <div
+                                    class="{{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }} p-4">
+                                    <a href="{{ route('admin.projects.index') }}">
+                                        Pojects</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

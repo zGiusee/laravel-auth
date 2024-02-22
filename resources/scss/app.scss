@@ -14,21 +14,20 @@ main {
         height: calc(100vh - 70px);
         background-color: rgb(20, 20, 20);
         display: flex;
-        padding: 10px 10px;
 
-        ul {
-            list-style: none;
-            padding: 0px;
+        .sidebar_list {
+            width: 100%;
 
-
-            li {
-                padding: 10px 15px;
+            div {
+                cursor: pointer;
 
                 a {
                     text-decoration: none;
                     color: white;
                 }
             }
+
+
         }
     }
 }
