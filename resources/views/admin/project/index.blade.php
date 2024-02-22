@@ -8,7 +8,7 @@
             {{-- PROJECTS TABLE --}}
             <div class="col-12">
                 <div class="py-3">
-                    <table class="table my-mt-80">
+                    <table class="table my-table-styles my-mt-80">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
@@ -18,24 +18,40 @@
                                 <th scope="col">Starting Date</th>
                                 <th scope="col">Ending Date</th>
                                 <th scope="col">Image Link</th>
-                                <th scope="col">Slug</th>
+                                {{-- <th scope="col">Slug</th> --}}
+                                <th scope="col">Tools</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($projects as $project)
                                 <tr>
+                                    {{-- TABLE PROPERTIES --}}
                                     <th scope="row">{{ $project->id }}</th>
-                                    <td>
-                                        <a href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">
-                                            {{ $project->name }}
-                                        </a>
-                                    </td>
+                                    <td>{{ $project->name }}</td>
                                     <td>{{ Str::limit($project->description, 50, '...') }}</td>
                                     <td>{{ Str::limit($project->repository_link, 30, '...') }}</td>
                                     <td>{{ $project->date_start }}</td>
                                     <td>{{ $project->date_end }}</td>
                                     <td>{{ Str::limit($project->img, 20, '...') }}</td>
-                                    <td>{{ $project->slug }}</td>
+                                    {{-- <td>{{ $project->slug }}</td> --}}
+
+                                    {{-- TOOLS --}}
+                                    <td>
+                                        {{-- REDIRECT TO DETAIL PAGE --}}
+                                        <a href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+
+                                        {{-- REDIRECT TO MODIFY PAGE --}}
+                                        <button href="">
+                                            <i class="fa-solid fa-pencil"></i>
+                                        </button>
+
+                                        {{-- DELETE BUTTON --}}
+                                        <button href="">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -14,6 +14,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -101,13 +104,18 @@
                         <div class="sidebar">
                             <div class="sidebar_list">
                                 <div
-                                    class="{{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }} p-4">
-                                    <a href="{{ route('admin.dashboard') }}">Home</a>
+                                    class="{{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-white' : '' }} p-4">
+                                    <a class="{{ Route::currentRouteName() == 'admin.dashboard' ? '' : 'text-white' }}"
+                                        href="{{ route('admin.dashboard') }}">
+                                        Home
+                                    </a>
                                 </div>
                                 <div
-                                    class="{{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }} p-4">
-                                    <a href="{{ route('admin.projects.index') }}">
-                                        Pojects</a>
+                                    class="{{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-white' : '' }} p-4">
+                                    <a class="{{ Route::currentRouteName() == 'admin.projects.index' ? '' : 'text-white' }}"
+                                        href="{{ route('admin.projects.index') }}">
+                                        Pojects
+                                    </a>
                                 </div>
                             </div>
                         </div>
