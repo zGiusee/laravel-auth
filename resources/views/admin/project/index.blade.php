@@ -47,16 +47,24 @@
                                             <i class="fa-solid fa-pencil"></i>
                                         </a>
 
-                                        {{-- DELETE BUTTON --}}
+                                        {{-- DELETE BUTTON
                                         <form class="d-inline-block"
                                             action="{{ route('admin.projects.destroy', ['project' => $project['slug']]) }}"
                                             method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit">
+                                            <button class="my_delete_button" type="submit">
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
-                                        </form>
+                                        </form> --}}
+
+                                        <button class="my_delete_button" data-bs-toggle="modal"
+                                            data-bs-target="#delete_modal" type="button"
+                                            data-project-slug="{{ $project->slug }}"
+                                            data-project-name="{{ $project->name }}">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -65,5 +73,6 @@
                 </div>
             </div>
         </div>
+        @include('admin.partials.delete_modal')
     </div>
 @endsection

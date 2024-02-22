@@ -1,5 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 
+// LOGO SETT
+.my-logo {
+    width: 150px;
+}
+
 // MY BUTTONS
 .my-red-btn {
     background-color: rgb(255, 40, 40);
@@ -115,7 +120,6 @@ main {
 
 // MY TABLE STYLES
 
-
 .my-table-styles {
 
     td,
@@ -127,7 +131,7 @@ main {
     a {
         background-color: rgb(255, 40, 40);
         color: white;
-        padding: 6px 8px;
+        padding: 6px 6px;
         margin: 0px 3px;
         border-radius: 15px;
         text-decoration: none;
