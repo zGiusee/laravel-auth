@@ -118,6 +118,12 @@ main {
 
 .my-table-styles {
 
+    td,
+    th {
+        padding: 30px 10px;
+
+    }
+
     a {
         background-color: rgb(255, 40, 40);
         color: white;

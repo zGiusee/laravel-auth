@@ -48,9 +48,15 @@
                                         </a>
 
                                         {{-- DELETE BUTTON --}}
-                                        <button href="">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
+                                        <form class="d-inline-block"
+                                            action="{{ route('admin.projects.destroy', ['project' => $project['slug']]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
