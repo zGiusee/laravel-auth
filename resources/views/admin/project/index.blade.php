@@ -3,21 +3,12 @@
 @section('content')
     <div>
         <div class="row">
-            {{-- BUTTONS --}}
-            <div class="col-12">
-                <div class="text-center">
-                    <div>
-                        <a href="{{ route('admin.projects.create') }}">
-                            Add project
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @include('admin.partials.dashboard_nav')
 
             {{-- PROJECTS TABLE --}}
             <div class="col-12">
                 <div class="py-3">
-                    <table class="table">
+                    <table class="table my-mt-80">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>

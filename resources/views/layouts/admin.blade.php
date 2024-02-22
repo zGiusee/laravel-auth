@@ -97,7 +97,7 @@
                 <div class="row">
 
                     {{-- Sidebar --}}
-                    <div class="col-2">
+                    <div class="col-2 p-0">
                         <div class="sidebar">
                             <div class="sidebar_list">
                                 <div

@@ -1,5 +1,41 @@
 @import '~bootstrap/scss/bootstrap';
 
+// MY BUTTONS
+.my-red-btn {
+    background-color: rgb(255, 40, 40);
+    color: white;
+    border: 3px solid transparent;
+    font-weight: bold;
+    padding: 9px 22px;
+    border-radius: 15px;
+    box-shadow: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.4s;
+
+    &:hover {
+        outline: none;
+        box-shadow: none;
+        background-color: rgb(30, 30, 30);
+        color: white;
+        border: 3px solid rgb(255, 40, 40);
+    }
+}
+
+// DASHBOARD NAV
+.dashboard-nav {
+    height: 72px;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    background-color: rgb(30, 30, 30);
+}
+
+.my-mt-80 {
+    margin-top: 72px;
+}
+
 // MAIN CONTENT AND SIDEBAR
 main {
     overflow-x: hidden;
@@ -12,7 +48,7 @@ main {
 
     .sidebar {
         height: calc(100vh - 70px);
-        background-color: rgb(20, 20, 20);
+        background-color: rgb(30, 30, 30);
         display: flex;
 
         .sidebar_list {
@@ -30,4 +66,45 @@ main {
 
         }
     }
+}
+
+// MY FORM STYLE
+.my-form {
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: rgb(255, 40, 40);
+        font-weight: bold;
+    }
+
+
+    textarea {
+        border: 2px solid rgb(30, 30, 30);
+        border-radius: 15px;
+        width: 80%;
+        padding: 7px 15px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    input {
+        border: 2px solid rgb(30, 30, 30);
+        border-radius: 15px;
+        width: 80%;
+        padding: 7px 15px;
+
+        &:focus {
+            outline: none;
+        }
+
+    }
+}
+
+.my-error-msg {
+    color: rgb(255, 0, 0);
+    padding: 10px 0px;
+    font-size: 15px;
+    text-decoration: underline;
 }

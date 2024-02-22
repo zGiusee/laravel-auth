@@ -28,9 +28,7 @@ class UpdateProjectRequest extends FormRequest
             'description' => 'required',
             'repository_link' => 'required|max:255',
             'date_start' => 'required',
-            'date_end' => '',
             'img' => 'max:255',
-            'slug' => 'required|max:255'
         ];
     }
 
