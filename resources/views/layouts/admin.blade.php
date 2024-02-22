@@ -93,7 +93,29 @@
         </nav>
 
         <main class="">
-            @yield('content')
+            <div class="display-flex">
+                <div class="row">
+
+                    {{-- Sidebar --}}
+                    <div class="col-2">
+                        <div class="sidebar">
+                            <ul>
+                                <li><a href="{{ route('admin.dashboard') }}">Home</a></li>
+                                <li><a href="{{ route('admin.projects.index') }}">Pojects</a></li>
+                                <li><a href="{{ route('admin.projects.index') }}">Pojects</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="col-10">
+                        <div class="main-content-container">
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </main>
     </div>
 </body>

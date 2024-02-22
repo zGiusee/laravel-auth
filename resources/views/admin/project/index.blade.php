@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div>
         <div class="row">
             <div class="col-12">
-                <div class="py-5">
+                <div class="py-3">
                     <table class="table">
                         <thead>
                             <tr>
