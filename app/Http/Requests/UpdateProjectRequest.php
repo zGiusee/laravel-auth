@@ -24,7 +24,7 @@ class UpdateProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:150',
+            'name' => 'required|max:150|unique:projects',
             'description' => 'required',
             'repository_link' => 'required|max:255',
             'date_start' => 'required',
@@ -36,6 +36,7 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'name.required' => 'The project name is required!',
+            'name.unique' => 'The project name already exists!',
             'name.max' => 'The project name must not be longer than 150 characters!',
             'description.required' => 'The project description is required!',
             'repository_link.required' => 'The repository link is required!',

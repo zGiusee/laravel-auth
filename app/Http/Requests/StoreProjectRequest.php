@@ -24,7 +24,7 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:150',
+            'name' => 'required|max:150|unique:projects',
             'description' => 'required',
             'repository_link' => 'required|max:255',
             'date_start' => 'required',
@@ -37,6 +37,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'name.required' => 'The project name is required!',
             'name.max' => 'The project name must not be longer than 150 characters!',
+            'name.unique' => 'The project name already exists!',
             'description.required' => 'The project description is required!',
             'repository_link.required' => 'The repository link is required!',
             'repository_link.max' => 'The repository link must not be longer than 255 characters!',
