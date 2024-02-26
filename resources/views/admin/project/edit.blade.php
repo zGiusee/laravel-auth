@@ -7,8 +7,8 @@
             {{-- PROJECTS CREATION FORM --}}
             <div class="col-12">
                 <div class="my-3">
-                    <form class="my-form" action="{{ route('admin.projects.update', ['project' => $project->slug]) }}"
-                        method="post">
+                    <form class="my-form" enctype="multipart/form-data"
+                        action="{{ route('admin.projects.update', ['project' => $project->slug]) }}" method="post">
                         @csrf
                         @method('PUT')
 
@@ -37,9 +37,10 @@
 
                                 {{-- PROJECT IMAGE LINK --}}
                                 <div class="col-12 my-3">
-                                    <label for="img">Project image link:</label>
-                                    <input max="255" type="text" name="img" id="img"
+                                    <label for="img">Project image link and img:</label>
+                                    <input accept="image/*" type="file" name="img" id="img"
                                         placeholder="Image link" value="{{ $project->img }}">
+                                    <img src="{{ asset('/storage/' . $project->img) }}" alt="" width="300">
                                     @error('img')
                                         <div class="my-error-msg">WARNING: {{ $message }}</div>
                                     @enderror

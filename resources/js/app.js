@@ -27,7 +27,7 @@ deleteButtons.forEach((button) => {
         // Definisco la url
         let url = `${window.location.origin}/admin/projects/${projectSlug}`;
 
-        // Recupero la form
+        // Recupero la formìì
         let delete_form = document.getElementById('delete_form');
 
         // applico alla form l'url

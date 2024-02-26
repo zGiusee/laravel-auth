@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -41,6 +42,15 @@ class ProjectController extends Controller
     {
         // RECUPERO I DATI DELLA RICHIESTA
         $form_data = $request->all();
+
+        // Controllo che request con chiave img contenga un file
+        if ($request->hasFile('img')) {
+            // Recupero il path dell'immagine caricata dall'utente
+            $img_path = Storage::disk('public')->put('project_images', $form_data['img']);
+
+            // Applico il valore della variabile all immagine
+            $form_data['img'] = $img_path;
+        };
 
         // CREO UNA NUOVA ISTANZA DI PROJECT
         $project = new Project;
@@ -96,6 +106,27 @@ class ProjectController extends Controller
         // RECUPERO I DATI DELLA RICHIESTA
         $form_data = $request->all();
 
+        // CONTROLLO PER VERIFICARE CHE IL 'name' SIA UNIQUE O NO
+        $exists = Project::where('name', 'LIKE', $form_data['name'])->get();
+        if (count($exists) > 0) {
+            return redirect()->route('admin.projects.show', ['project' =>  $project->slug]);
+        }
+
+        // Controllo che request con chiave img contenga un file
+        if ($request->hasFile('img')) {
+
+            // Controllo che l'immagine sia diversa da 'null'
+            if ($project->img != null) {
+                // Se non è diversa da null procedo con la cancellazione dell'immagine
+                Storage::disk('public')->delete($project->img);
+            }
+
+            // Recupero il path dell'immagine caricata dall'utente
+            $img_path = Storage::disk('public')->put('project_images', $form_data['img']);
+            // Applico il valore della variabile all immagine
+            $form_data['img'] = $img_path;
+        };
+
         // DEFINISCO LO SLUG
         $slug = Str::slug($form_data['name'], '-');
 
@@ -117,6 +148,11 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        // Controllo che l'immagine sia diversa da 'null'
+        if ($project->img != null) {
+            // Se non è diversa da null procedo con la cancellazione dell'immagine
+            Storage::disk('public')->delete($project->img);
+        }
 
         $project->delete();
         return redirect()->route('admin.projects.index');
