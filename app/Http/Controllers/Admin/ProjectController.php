@@ -107,7 +107,7 @@ class ProjectController extends Controller
         $form_data = $request->all();
 
         // CONTROLLO PER VERIFICARE CHE IL 'name' SIA UNIQUE O NO
-        $exists = Project::where('name', 'LIKE', $form_data['name'])->get();
+        $exists = Project::where('name', 'LIKE', $form_data['name'])->where('id', '!=', $project->id)->get();
         if (count($exists) > 0) {
             return redirect()->route('admin.projects.show', ['project' =>  $project->slug]);
         }
