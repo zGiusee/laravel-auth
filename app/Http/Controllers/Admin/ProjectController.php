@@ -109,7 +109,8 @@ class ProjectController extends Controller
         // CONTROLLO PER VERIFICARE CHE IL 'name' SIA UNIQUE O NO
         $exists = Project::where('name', 'LIKE', $form_data['name'])->where('id', '!=', $project->id)->get();
         if (count($exists) > 0) {
-            return redirect()->route('admin.projects.show', ['project' =>  $project->slug]);
+            $error_message = 'The project name already exist!';
+            return redirect()->route('admin.projects.edit', ['project' =>  $project->slug], compact('error_message'));
         }
 
         // Controllo che request con chiave img contenga un file
